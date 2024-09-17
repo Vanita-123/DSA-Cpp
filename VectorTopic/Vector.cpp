@@ -59,11 +59,11 @@ int main(){
 
 
 
-    //     // at
+      // at
 
 
-    //     cout <<"at" <<vec.at(0);
-    //     cout <<"at" <<vec.at(3);
+        cout <<"at" <<vec.at(0);
+        cout <<"at" <<vec.at(3);
 
 
 // size and capacity
@@ -106,3 +106,90 @@ int main(){
     cout<<SingleNumber(nums);
     return 0;
 }
+
+
+
+
+// Maximum  Subarray
+#include <iostream>
+#include<vector>
+using namespace std ;
+int main(){
+    int n=5;
+    int arr[5]={1,2,3,4,5};
+    
+    for (int start= 0; start <n; start++)
+    {
+        for (int end = start; end < n; end++)
+        {
+        for(int i=start; i<=end;i++){
+            cout <<arr[i];
+        }
+        cout <<" ";
+        }
+        cout<<endl;
+        
+    }
+    
+}
+
+
+// brute force method
+#include <iostream>
+#include<vector>
+using namespace std ;
+int main(){
+
+int n=5;
+int arr [5]={2,14,-6,-2,5};
+    int maxSum = INT8_MIN;
+    int currentSum =0;
+  for(int start=0 ; start<n; start++){
+    for(int end=start; end<n; end++)
+    {
+   int currentSum =arr[end];
+     maxSum = max(currentSum ,maxSum);
+    }
+     cout << " Maximum SubArray " << maxSum << " ";
+    return 0;
+}
+
+}
+
+
+// Kadane's Algorithm
+#include <iostream>
+#include<vector>
+using namespace std ;
+
+
+int currentsum =0;
+int maxSum =INT8_MIN;
+int KadaneAlgo (vector<int>&nums){
+
+for (int val: nums)
+{
+    currentsum +=val;
+    maxSum =max(currentsum,maxSum);
+if(currentsum<0){
+    currentsum=0;
+}
+}
+return maxSum;
+
+}
+
+
+int main(){
+    vector<int>arr= {-2,1,-3,4,-1,2,1,-5,4};
+ int maxSum =KadaneAlgo(arr);
+  cout <<"maxSum  :" <<maxSum;
+return 0;
+}
+
+
+
+
+
+
+
